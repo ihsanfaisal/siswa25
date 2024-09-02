@@ -36,7 +36,7 @@ export async function ambilDaftarSiswa() {
     hasilKueri.push({
       id: dokumen.id,
       nama: dokumen.data().nama,
-      alamat: dokument.data().alamat
+      alamat: dokumen.data().alamat
     })
   })
   
