@@ -30,7 +30,7 @@ export async function ambilDaftarSiswa() {
   const refDokumen = collection(basisdata, "siswa");
   const kueri = query(refDokumen, orderBy("nama"));
   const cuplikanKueri = await getDocs(kueri);
-  
+
   let hasilKueri = [];
   cuplikanKueri.forEach((dokumen) => {
     hasilKueri.push({
@@ -39,6 +39,22 @@ export async function ambilDaftarSiswa() {
       alamat: dokumen.data().alamat
     })
   })
-  
+
   return hasilKueri;
+}
+
+export async function tambahSiswa(nama, alamat) {
+  try {
+    // menyimpan data ke firebase
+    const refDokumen = await addDoc(collection(basisdata, "siswa"), {
+      nama: nama,
+      alamat: alamat
+    })
+
+    // menampilkan pesan berhasil
+    console.log("berhasil menyimpan data siswa")
+  } catch (error) {
+    // menampilkan pesan gagal
+    console.log("gagal menyimpan data siswa")
+  }
 }
