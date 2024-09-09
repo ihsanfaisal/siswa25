@@ -38,9 +38,11 @@
             let alamat = $("#inputalamat").val()
 
             // ketika tombol tambah di pencet
-            $("#tombolsimpan").click(async function() {
+            $("#tombolsimpan").click(async function(event) {
+                event.preventDefault()
                 await tambahSiswa(nama, alamat)
-                window.location.href = "index.html"
+                console.log("berhasil menambah data siswa")
+                // window.location.href = "index.html"
             })
         })
     </script>
