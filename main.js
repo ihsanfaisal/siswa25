@@ -58,3 +58,7 @@ export async function tambahSiswa(nama, alamat) {
     console.log("gagal menyimpan data siswa")
   }
 }
+
+export async function hapusSiswa(id) {
+  await deleteDoc(doc(basisdata, "siswa", id))
+}
